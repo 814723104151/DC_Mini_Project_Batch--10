@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Online Exam Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Online Exam (Demo)</h1>
+
+    <section id="createExam">
+      <h2>Create Exam</h2>
+      <textarea id="examPayload" rows="8" placeholder='{"title":"Midterm","duration":60,"questions":[...]}'>{
+  "title":"Sample Quiz",
+  "duration":10,
+  "questions":[
+    {"question_id":"q1","question_text":"2+2 = ?","options":["1","2","3","4"],"correct_option":3},
+    {"question_id":"q2","question_text":"3+3 = ?","options":["3","4","5","6"],"correct_option":3}
+  ]
+}</textarea>
+      <button id="btnCreateExam">Create Exam</button>
+      <div id="createResponse"></div>
+    </section>
+
+    <hr/>
+
+    <section id="takeExam">
+      <h2>Submit Answers</h2>
+      <input id="examIdInput" placeholder="exam_id"/>
+      <input id="userIdInput" placeholder="user_id (e.g., S001)"/>
+      <textarea id="answersPayload" rows="6" placeholder='[{"question_id":"q1","selected_option":3}]'>[
+  {"question_id":"q1","selected_option":3},
+  {"question_id":"q2","selected_option":3}
+]</textarea>
+      <button id="btnSubmitAnswers">Submit</button>
+      <div id="submitResponse"></div>
+    </section>
+
+    <hr/>
+
+    <section id="getResults">
+      <h2>Get Results</h2>
+      <input id="resultExamId" placeholder="exam_id"/>
+      <input id="resultUserId" placeholder="user_id (optional)"/>
+      <button id="btnGetResults">Get Results</button>
+      <pre id="resultsPre"></pre>
+    </section>
+
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
